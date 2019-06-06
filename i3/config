@@ -20,6 +20,7 @@ font pango:Terminus Regular 8
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id feh --bg-fill /home/ej/Documents/pics/Pictures/ultrawide/nGdnAB4.jpg
 exec --no-startup-id mono ~/Downloads/RemoteMouse/RemoteMouse.exe
+exec --no-startup-id polybar Bar
 exec nm-applet
 exec volumeicon
 exec blueman-applet
@@ -189,8 +190,18 @@ bindsym $mod+r mode "resize"
 #set $backlight_path ~/i3-kb-backlight
 
 # Sreen brightness controls
-bindsym $mod+o exec xbacklight -inc 20 # increase screen brightness
-bindsym $mod+p exec sudo xbacklight -dec 20 # decrease screen brightness
+# bindsym $mod+o exec xbacklight -inc 20 # increase screen brightness
+# bindsym $mod+p exec sudo xbacklight -dec 20 # decrease screen brightness
+
+#Toggle i3statusbar
+bindsym $mod+p bar mode toggle
+bindsym $mod+o bar mode invisible
+
+#Kill polybar
+bindsym $mod+i exec killall -q polybar
+
+#Execute polybar
+bindsym $mod+Shift+i exec polybar Bar
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -203,10 +214,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle #mute so
 #bar {
 #        status_command i3status
 #}
+#
 
+#-------------Main Bar-----------------------
 bar {
         position top
         status_command /home/ej/.config/bumblebee-status/bumblebee-status -m cpu battery memory date time -p time.format="%I:%M" -t solarized
+
 
          colors {
                 background #fffafa
@@ -220,7 +234,38 @@ bar {
                 binding_mode       #2f343a #900000 #ffffff
     }
 }
+#-------------Main Bar-----------------------
 
+
+#-------------Poly Bar-----------------------
+# bar {
+# 	status_command polybar Bar
+# 	tray_output primary
+# 	separator_symbol "//"
+# 	strip_workspace_numbers yes
+
+# 	position bottom
+# 	mode invisible
+
+# 	colors {
+	   
+# 	    background		$bg.color
+# 	    statusline		$fg.color	
+# 	    separator		$alt.color
+
+# 	    # class		border		background	font
+# 	    focused_workspace	$bg.color	$alt.color	$fg.color
+# 	    inactive_workspace	$bg.color	$bg.color	$fg.color
+# 	    active_workspace	$bg.color	$alt.color	$fg.color
+# 	    urgent_workspace	$bg.color	$warn.color	#ffffff
+# 	}
+# }
+#-------------Poly Bar-----------------------
+
+#
+#
+#
+#
 #Backup
                 # focused_workspace  #ffc0cb #ffc0cb #fff0f5
                 # active_workspace   #b0e0e6 #b0e0e6 #fff0f5
