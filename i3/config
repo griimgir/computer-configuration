@@ -21,9 +21,15 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id feh --bg-fill /home/ej/Documents/pics/Pictures/ultrawide/nGdnAB4.jpg
 exec --no-startup-id mono ~/Downloads/RemoteMouse/RemoteMouse.exe
 exec --no-startup-id polybar Bar
-exec nm-applet
-exec volumeicon
-exec blueman-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
+exec --no-startup-id blueman-applet
+
+#command binds
+bindsym $mod+Shift+n exec --no-startup-id cd ~/Documents/Programs/edex-ui-2.2.2/ && npm start
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+t exec thunar
+bindsym $mod+c exec code
 
 # Screen Shots
 bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/' -q 10000
