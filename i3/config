@@ -24,6 +24,7 @@ exec --no-startup-id polybar Bar
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id blueman-applet
+exec --no-startup-id /home/ej/Documents/Programs/i3-battery-popup-master/i3-battery-popup
 
 #command binds
 bindsym $mod+Shift+n exec --no-startup-id cd ~/Documents/Programs/edex-ui-2.2.2/ && npm start
@@ -32,8 +33,9 @@ bindsym $mod+Shift+t exec thunar
 bindsym $mod+c exec code
 
 # Screen Shots
-bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/' -q 10000
-bindsym Control+Print exec gnome-screenshot -i
+# bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/' -q 10000
+# bindsym Control+Print exec gnome-screenshot -i
+bindsym $mod+Shift+s exec --no-startup-id scrot
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -51,6 +53,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec xfce4-terminal
+bindsym $mod+t exec urxvt
 
 # apearance
 #new_window 1pixel
